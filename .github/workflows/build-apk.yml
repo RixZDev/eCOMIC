@@ -1,4 +1,4 @@
-name: Build APK
+name: Build APK Offline
 on: [push]
 jobs:
   build:
@@ -10,11 +10,11 @@ jobs:
       - uses: actions/setup-java@v5
         with: { distribution: 'temurin', java-version: '21' }
       - run: npm install
-      - run: npm install @capacitor/cli @capacitor/core @capacitor/android
-      - run: mkdir -p www && echo "<html></html>" > www/index.html
+      - run: npm run build
       - run: npx cap add android
       - run: npx cap sync
       - run: chmod +x android/gradlew
-      - run: cd android &&./gradlew assembleDebug --no-daemon
+      - run: cd android &&./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
-        with: { name: apk-debug, path: android/app/build/outputs/apk/debug/app-debug.apk }
+        with: { name: apk-offline, path: android/app/build/outputs/apk/debug/app-debug.apk }
+        
