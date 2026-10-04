@@ -1,9 +1,6 @@
 {
   "appId": "com.ecomic.flowread",
-  "appName": "Ecomic Flow Reader",
-  "webDir": "www",
-  "server": {
-    "url": "https://ecomic-flow-read.base44.app",
-    "cleartext": true
-  }
+  "appName": "eCOMIC",
+  "webDir": "dist",
+  "bundledWebRuntime": false
 }
